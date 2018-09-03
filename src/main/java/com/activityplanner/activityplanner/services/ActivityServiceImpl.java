@@ -30,6 +30,11 @@ public class ActivityServiceImpl implements ActivityService {
 		}
 		return activities;
 	}
-	
+
+	@Override
+	public void deleteActivity(String id) {
+		activityRepository.deleteById(id);
+		
+	}
 
 }

@@ -58,6 +58,9 @@ public class ActivityDTO {
 	
 	public Activity convertToDocument() {
 		Activity activity = new Activity();
+		if(this.id != null) {
+			activity.setId(this.id);
+		}
 		activity.setDate(this.date);
 		activity.setDescription(this.description);
 		activity.setLocation(this.location);

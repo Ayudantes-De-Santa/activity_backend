@@ -10,4 +10,6 @@ public interface ActivityService {
 
 	public List<ActivityDTO> getActivities();
 
+	public void deleteActivity(String id);
+
 }

@@ -25,8 +25,7 @@ public class MainController {
 		return "Hello " + summonName;
 	}
 	
-	@RequestMapping(value= "/activity/create", method = RequestMethod.PUT, headers="Accept=application/x-www-form-urlencoded")
-	@ResponseBody
+	@RequestMapping(value= "/activity/create", method = RequestMethod.POST, headers="Accept=application/x-www-form-urlencoded")
 	public void create(@RequestBody ActivityDTO activity) {
 		activityService.saveOrUpdateActivity(activity);
 	}
@@ -35,6 +34,16 @@ public class MainController {
 	@ResponseBody
 	public List<ActivityDTO> getAll() {
 		return activityService.getActivities();
+	}
+	
+	@RequestMapping(value= "/activity/update", method = RequestMethod.PUT, headers="Accept=application/x-www-form-urlencoded")
+	public void update(@RequestBody ActivityDTO activity) {
+		activityService.saveOrUpdateActivity(activity);
+	}
+	
+	@RequestMapping(value= "/activity/delete/{id}", method = RequestMethod.DELETE, headers="Accept=application/x-www-form-urlencoded")
+	public void delete(@PathVariable String id) {
+		activityService.deleteActivity(id);
 	}
 
 }
