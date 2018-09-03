@@ -1,13 +1,10 @@
 package com.activityplanner.activityplanner.model.entities;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="activities")
 public class Activity {
 	
-	@Id
-	private long id;
 	private String name;
 	private String date;
 	private String time;
@@ -15,12 +12,6 @@ public class Activity {
 	private String photo;
 	private String description;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}

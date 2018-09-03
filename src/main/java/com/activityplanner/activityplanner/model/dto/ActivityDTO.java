@@ -4,7 +4,6 @@ import com.activityplanner.activityplanner.model.entities.Activity;
 
 public class ActivityDTO {
 	
-	private Long id;
 	private String name;
 	private String location;
 	private String date;
@@ -12,12 +11,6 @@ public class ActivityDTO {
 	private String photo;
 	private String description;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
@@ -57,9 +50,6 @@ public class ActivityDTO {
 	
 	public Activity convertToDocument() {
 		Activity activity = new Activity();
-		if(this.id != null) {
-			activity.setId(this.id);
-		}
 		activity.setDate(this.date);
 		activity.setDescription(this.description);
 		activity.setLocation(this.location);
