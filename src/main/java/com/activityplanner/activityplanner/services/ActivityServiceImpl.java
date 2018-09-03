@@ -1,6 +1,7 @@
 package com.activityplanner.activityplanner.services;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class ActivityServiceImpl implements ActivityService {
 	public List<ActivityDTO> getActivities() {
 		List<Activity> savedActivities = activityRepository.findAll();
 		List<ActivityDTO> activities = new ArrayList();
+		savedActivities.sort(Comparator.comparing(Activity::getDate));
 		for (Activity activity : savedActivities) {
 			activities.add(new ActivityDTO().convertFromDocument(activity));
 		}
