@@ -13,4 +13,6 @@ public class ActivityplannerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ActivityplannerApplication.class, args);
 	}
+	
+	
 }
