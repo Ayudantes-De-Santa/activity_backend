@@ -13,7 +13,6 @@ public class Activity {
 	private String id;
 	private String name;
 	private LocalDateTime  date;
-	private String time;
 	private String location;
 	private String photo;
 	private String description;
@@ -61,12 +60,6 @@ public class Activity {
 	}
 	public void setDate(LocalDateTime  date) {
 		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
 	}
 
 }

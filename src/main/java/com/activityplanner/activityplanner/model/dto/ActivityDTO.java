@@ -93,6 +93,7 @@ public class ActivityDTO {
 		activity.setLocation(this.location);
 		activity.setName(this.name);
 		activity.setParticipants(this.participants);
+		activity.setPhoto(this.photo);
 //		activity.setTime(this.time);
 		return activity;
 	}
@@ -104,6 +105,7 @@ public class ActivityDTO {
 		this.location = activity.getLocation();
 		this.name = activity.getName();
 		this.id = activity.getId();
+		this.photo = activity.getPhoto();
 		this.participants = activity.getParticipants();
 		DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern("HH:mm");
 		this.time = activity.getDate().format(newFormatter);
