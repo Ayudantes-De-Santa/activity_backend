@@ -22,9 +22,11 @@ public class ActivityServiceImpl implements ActivityService {
 		activityRepository.save(activityDTO.convertToDocument());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<ActivityDTO> getActivities() {
 		List<Activity> savedActivities = activityRepository.findAll();
+		@SuppressWarnings("unchecked")
 		List<ActivityDTO> activities = new ArrayList();
 		savedActivities.sort(Comparator.comparing(Activity::getDate));
 		for (Activity activity : savedActivities) {
