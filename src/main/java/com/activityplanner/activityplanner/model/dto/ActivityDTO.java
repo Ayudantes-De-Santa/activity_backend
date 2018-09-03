@@ -7,8 +7,8 @@ import java.util.List;
 import com.activityplanner.activityplanner.model.entities.Activity;
 
 public class ActivityDTO {
+	
 	private String id;
-
 	private String name;
 	private String location;
 	private String date;
@@ -16,6 +16,8 @@ public class ActivityDTO {
 	private String photo;
 	private String description;
 	private List<String> participants;
+	
+	public ActivityDTO() {};
 
 	public String getId() {
 		return id;
