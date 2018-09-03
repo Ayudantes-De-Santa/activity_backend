@@ -3,13 +3,21 @@ package com.activityplanner.activityplanner.model.dto;
 import com.activityplanner.activityplanner.model.entities.Activity;
 
 public class ActivityDTO {
-	
+	private String id;
+
 	private String name;
 	private String location;
 	private String date;
 	private String time;
 	private String photo;
 	private String description;
+
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
@@ -57,5 +65,16 @@ public class ActivityDTO {
 		activity.setTime(this.time);
 		return activity;
 	}
+	
+	public ActivityDTO convertFromDocument(Activity activity) {
+		this.date = activity.getDate();
+		this.description = activity.getDescription();
+		this.location = activity.getLocation();
+		this.name = activity.getName();
+		this.id = activity.getId();
+		this.time = activity.getTime();
+		return this;
+	}
+
 
 }

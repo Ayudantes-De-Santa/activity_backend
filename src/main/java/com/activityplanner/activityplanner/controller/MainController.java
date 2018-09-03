@@ -1,5 +1,7 @@
 package com.activityplanner.activityplanner.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +25,16 @@ public class MainController {
 		return "Hello " + summonName;
 	}
 	
-	@RequestMapping(value= "/activity/create")
+	@RequestMapping(value= "/activity/create", method = RequestMethod.PUT, headers="Accept=application/x-www-form-urlencoded")
 	@ResponseBody
 	public void create(@RequestBody ActivityDTO activity) {
 		activityService.saveOrUpdateActivity(activity);
+	}
+	
+	@RequestMapping(value= "/activity/get", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ActivityDTO> getAll() {
+		return activityService.getActivities();
 	}
 
 }
