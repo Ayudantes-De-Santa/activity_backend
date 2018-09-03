@@ -12,4 +12,6 @@ public interface ActivityService {
 
 	public void deleteActivity(String id);
 
+	public void updateParticipants(String id, List<String> participants);
+
 }

@@ -38,5 +38,12 @@ public class MainController {
 	public void delete(@PathVariable String id) {
 		activityService.deleteActivity(id);
 	}
+	
+	@RequestMapping(value= "/activity/{id}/updateparticipants", method = RequestMethod.PUT)
+	public void updateParticipants(@PathVariable String id, @RequestBody List<String> participants) {
+		activityService.updateParticipants(id , participants);
+	}
+	
+	
 
 }
