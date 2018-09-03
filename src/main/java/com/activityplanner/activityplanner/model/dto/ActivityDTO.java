@@ -2,6 +2,7 @@ package com.activityplanner.activityplanner.model.dto;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import com.activityplanner.activityplanner.model.entities.Activity;
 
@@ -14,6 +15,7 @@ public class ActivityDTO {
 	private String time;
 	private String photo;
 	private String description;
+	private List<String> participants;
 
 	public String getId() {
 		return id;
@@ -71,6 +73,14 @@ public class ActivityDTO {
 		this.description = description;
 	}
 
+	public List<String> getParticipants() {
+		return participants;
+	}
+	
+	public void setParticipants(List<String> participants) {
+		this.participants = participants;
+	}
+
 	public Activity convertToDocument() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 		Activity activity = new Activity();
@@ -82,6 +92,7 @@ public class ActivityDTO {
 		activity.setDescription(this.description);
 		activity.setLocation(this.location);
 		activity.setName(this.name);
+		activity.setParticipants(this.participants);
 //		activity.setTime(this.time);
 		return activity;
 	}
@@ -93,9 +104,11 @@ public class ActivityDTO {
 		this.location = activity.getLocation();
 		this.name = activity.getName();
 		this.id = activity.getId();
+		this.participants = activity.getParticipants();
 		DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern("HH:mm");
 		this.time = activity.getDate().format(newFormatter);
 		return this;
 	}
+
 
 }

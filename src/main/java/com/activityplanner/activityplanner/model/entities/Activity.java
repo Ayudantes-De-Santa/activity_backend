@@ -1,6 +1,7 @@
 package com.activityplanner.activityplanner.model.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,6 +17,7 @@ public class Activity {
 	private String location;
 	private String photo;
 	private String description;
+	private List<String> participants;
 
 	public String getId() {
 		return id;
@@ -50,6 +52,12 @@ public class Activity {
 	}
 	public LocalDateTime  getDate() {
 		return date;
+	}
+	public List<String> getParticipants() {
+		return participants;
+	}
+	public void setParticipants(List<String> participants) {
+		this.participants = participants;
 	}
 	public void setDate(LocalDateTime  date) {
 		this.date = date;
